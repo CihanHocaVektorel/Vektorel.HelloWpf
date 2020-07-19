@@ -28,7 +28,8 @@ namespace Vektorel.HelloWpf
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Window3 w3 = new Window3(this);
-            w3.Show();            
+            w3.Show();   
+            //Deneme
         }
     }
 }
