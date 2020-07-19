@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <TextBox Margin="10" Name="txtAd" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="23" MaxLength="10" VerticalAlignment="Top" Width="120"/>
         <TextBox Margin="10" Name="txtSoyad" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Margin="10" Name="btnGiris"  Grid.Row="2" Grid.Column="1" Content="Giriş" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="120"/>
+        <Button Margin="10" Name="btnGiris"  Grid.Row="2" Grid.Column="1" Content="Giriş" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="120" Click="BtnGiris_Click"/>
         <Label Margin="10" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Content="Ad"  VerticalAlignment="Top" />
         <Label Margin="10" Grid.Row="1" Grid.Column="0" Content="Soyad" HorizontalAlignment="Left" VerticalAlignment="Top" />
 

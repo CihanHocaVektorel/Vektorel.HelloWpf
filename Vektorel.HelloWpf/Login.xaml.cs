@@ -23,5 +23,11 @@ namespace Vektorel.HelloWpf
         {
             InitializeComponent();
         }
+
+        private void BtnGiris_Click(object sender, RoutedEventArgs e)
+        {
+            KacanButon kacanButon = new KacanButon(txtAd.Text, txtSoyad.Text);
+            kacanButon.Show();
+        }
     }
 }
