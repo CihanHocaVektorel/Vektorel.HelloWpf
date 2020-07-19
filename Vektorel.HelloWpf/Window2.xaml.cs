@@ -29,7 +29,7 @@ namespace Vektorel.HelloWpf
         {
             Window3 w3 = new Window3(this);
             w3.Show();   
-            //Deneme
+            //Deneme1
         }
     }
 }
