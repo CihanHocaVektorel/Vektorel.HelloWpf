@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vektorel.HelloWpf", "Vektorel.HelloWpf\Vektorel.HelloWpf.csproj", "{5265F5E0-4885-4EAE-8B9D-366A650DC5C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5265F5E0-4885-4EAE-8B9D-366A650DC5C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5265F5E0-4885-4EAE-8B9D-366A650DC5C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5265F5E0-4885-4EAE-8B9D-366A650DC5C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5265F5E0-4885-4EAE-8B9D-366A650DC5C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D737E7E-E98E-4F93-816A-F4A8712E38CE}
+	EndGlobalSection
+EndGlobal
