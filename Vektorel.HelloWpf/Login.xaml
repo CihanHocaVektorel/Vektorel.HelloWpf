@@ -27,6 +27,6 @@
         <Button Margin="10" Name="btnGiris"  Grid.Row="2" Grid.Column="1" Content="Giriş" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="120" Click="BtnGiris_Click"/>
         <Label Margin="10" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Content="Ad"  VerticalAlignment="Top" />
         <Label Margin="10" Grid.Row="1" Grid.Column="0" Content="Soyad" HorizontalAlignment="Left" VerticalAlignment="Top" />
-
+       
     </Grid>
 </Window>

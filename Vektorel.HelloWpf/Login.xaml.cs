@@ -26,7 +26,11 @@ namespace Vektorel.HelloWpf
 
         private void BtnGiris_Click(object sender, RoutedEventArgs e)
         {
-            KacanButon kacanButon = new KacanButon(txtAd.Text, txtSoyad.Text);
+            //Oyuncu oyn = new Oyuncu();
+            //oyn.Ad = txtAd.Text;
+            //oyn.Soyad = txtSoyad.Text;
+            KacanButon kacanButon = new KacanButon(new Oyuncu { Ad = txtAd.Text, Soyad = txtSoyad.Text });
+
             kacanButon.Show();
         }
     }

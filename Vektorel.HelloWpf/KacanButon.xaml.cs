@@ -1,63 +1,80 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace Vektorel.HelloWpf
 {
-
-    /// <summary>
-    /// Interaction logic for KacanButon.xaml
-    /// </summary>
     public partial class KacanButon : Window
     {
+        #region Tanımlamalar
         DispatcherTimer timer = new DispatcherTimer();
-        int sure = 3;
+        int sure = 0;
         int puan = 0;
         int left = 0;
+        Oyuncu o;
+        #endregion
+
+        #region Constructorlar
         public KacanButon()
         {
             InitializeComponent();
-            // MessageBox.Show("Height:"+this.Height.ToString()+"\nMax Height:"+this.MaxHeight+"\nActual Height:"+this.ActualHeight);
-            //ClientSize            
+            OyunuBaslat();
         }
 
+        public KacanButon(Oyuncu o)
+        {
+            InitializeComponent();
+            this.o = o;
+            lblAdSoyad.Content = $"{o.Ad} {o.Soyad}";
+            timer.Tick += Timer_Tick;
+            OyunuBaslat();
+            //lblSure.Content = sure;            
+        } 
+        #endregion
+
+        #region Timer Tick Eventi
         private void Timer_Tick(object sender, EventArgs e)
         {
             if (sure == 0)
             {
+                SkorKaydet(puan, DateTime.Now, o);
                 timer.Stop();
                 btnKac.Visibility = Visibility.Hidden;
-                MessageBox.Show($"Oyun Bitti!\nPuanınız:{puan}");
+                MessageBoxResult cevap = MessageBox.Show($"Oyun Bitti!\nPuanınız:{puan}\nYeniden Başlamak İster misiniz?", "Game Over", MessageBoxButton.YesNo);
+                if (cevap == MessageBoxResult.Yes)
+                {
+                    OyunuBaslat();
+                }
+                else
+                {
+                    MessageBox.Show("Bitti");
+                    Application.Current.Shutdown();
+                }
             }
             else
             {
-                sure--;
                 lblSure.Content = sure;
+                sure--;
             }
-        }
+        } 
+        #endregion
 
-        public KacanButon(string ad, string soyad)
+        #region Oyunu Başlatan Metod
+        public void OyunuBaslat()
         {
-            InitializeComponent();
-            lblAdSoyad.Content = $"{ad} {soyad}";
             timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Tick += Timer_Tick;
             timer.Start();
-
+            sure = 3;
+            puan = 0;
+            lblPuan.Content = puan;
+            btnKac.Visibility = Visibility.Visible;
+            this.WindowState = WindowState.Maximized;
         }
+        #endregion
 
+        #region Button Mouse Move Eventi
         private void BtnKac_MouseMove(object sender, MouseEventArgs e)
         {
             Random rnd = new Random();
@@ -65,28 +82,20 @@ namespace Vektorel.HelloWpf
             left = rnd.Next((int)(grdIcerik.ColumnDefinitions[0].ActualWidth - btnKac.Width));
             btnKac.Margin = new Thickness(rnd.Next((int)(grdIcerik.ColumnDefinitions[0].ActualWidth - btnKac.Width)), rnd.Next((int)(grdIcerik.ActualHeight - btnKac.Height)), 0, 0);
             puan++;
-            lblPuan.Content = puan;            
+            lblPuan.Content = puan;
         }
+        #endregion/**/
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        #region Skor Kayıt İşlemi
+        void SkorKaydet(int puan, DateTime tarih, Oyuncu o)
         {
-
-            // lblSize.Content = "Height:" + this.Height.ToString() + "\nMax Height:" + this.MaxHeight + "\nActual Height:" + this.ActualHeight + "\nRender Size Width:" + this.RenderSize.Width + "\nRender Size Height:" + this.RenderSize.Height + "\nBorderWidth:" + SystemParameters.BorderWidth + "\nCaption Height:" + SystemParameters.CaptionHeight;
+            File.AppendAllText(@"D:\Skorlar.txt", $"{o.Ad} {o.Soyad} isimli oyuncu {tarih} tarihinde {puan} puan aldı.\r\n");
         }
+        #endregion
 
-        void ClickEvent()
+        private void BtnSkorGoster_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void ClickEvent(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnKac_Click(object sender, RoutedEventArgs e)
-        {
-
+          MessageBox.Show(File.ReadAllText(@"D:\Skorlar.txt"));
         }
     }
 }
