@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Vektorel.HelloWpf.Models;
 
 namespace Vektorel.HelloWpf
 {
@@ -30,7 +31,6 @@ namespace Vektorel.HelloWpf
             //oyn.Ad = txtAd.Text;
             //oyn.Soyad = txtSoyad.Text;
             KacanButon kacanButon = new KacanButon(new Oyuncu { Ad = txtAd.Text, Soyad = txtSoyad.Text });
-
             kacanButon.Show();
         }
     }

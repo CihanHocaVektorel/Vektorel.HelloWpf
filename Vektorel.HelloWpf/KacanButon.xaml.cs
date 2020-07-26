@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
+using Vektorel.HelloWpf.Models;
 
 namespace Vektorel.HelloWpf
 {
@@ -39,7 +40,7 @@ namespace Vektorel.HelloWpf
         {
             if (sure == 0)
             {
-                SkorKaydet(puan, DateTime.Now, o);
+                SkorKaydet(new Skor(o, puan, DateTime.Now));
                 timer.Stop();
                 btnKac.Visibility = Visibility.Hidden;
                 MessageBoxResult cevap = MessageBox.Show($"Oyun Bitti!\nPuanınız:{puan}\nYeniden Başlamak İster misiniz?", "Game Over", MessageBoxButton.YesNo);
@@ -87,9 +88,9 @@ namespace Vektorel.HelloWpf
         #endregion/**/
 
         #region Skor Kayıt İşlemi
-        void SkorKaydet(int puan, DateTime tarih, Oyuncu o)
+        void SkorKaydet(Skor s)
         {
-            File.AppendAllText(@"D:\Skorlar.txt", $"{o.Ad} {o.Soyad} isimli oyuncu {tarih} tarihinde {puan} puan aldı.\r\n");
+            File.AppendAllText(@"D:\Skorlar.txt", $"{s.Player.Ad} {s.Player.Soyad} isimli oyuncu {s.Tarih} tarihinde {s.Puan} puan aldı.\r\n");
         }
         #endregion
 

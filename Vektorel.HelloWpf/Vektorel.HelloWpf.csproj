@@ -61,7 +61,8 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Oyuncu.cs" />
+    <Compile Include="Models\Oyuncu.cs" />
+    <Compile Include="Models\Skor.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>

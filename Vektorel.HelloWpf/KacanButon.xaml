@@ -21,7 +21,9 @@
             <Label Name="lblPuan" Content="Label" HorizontalAlignment="Center"  VerticalAlignment="Top" Grid.Row="0" Foreground="White" Panel.ZIndex="1" FontSize="24" Opacity="0.75"/>
             <Label Name="lblAdSoyad" Grid.Row="1" Content="AdSoyad" Panel.ZIndex="2" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Top"></Label>
             <Label Name="lblSure" HorizontalAlignment="Center"  VerticalAlignment="Top" Grid.Row="2" Foreground="White" FontSize="20" />
-            <Button Grid.Row="3" x:Name="btnSkorGoster" Content="Eski Skorlar" Click="BtnSkorGoster_Click" Panel.ZIndex="3"></Button>
+            <Button Grid.Row="3" x:Name="btnSkorGoster" Content="Eski Skorlar" Click="BtnSkorGoster_Click" Panel.ZIndex="3" Opacity="0.75">
+                
+            </Button>
         </Grid>
         <Button Name="btnKac" Content="Button" VerticalAlignment="Top" Height="75" Margin="254,169,0,0" MouseMove="BtnKac_MouseMove" HorizontalAlignment="Left" Width="75"  Grid.Column="0" RenderTransformOrigin="0.5,0.5"/>
         <Rectangle Grid.Column="1" Panel.ZIndex="0" d:IsLocked="False" >
