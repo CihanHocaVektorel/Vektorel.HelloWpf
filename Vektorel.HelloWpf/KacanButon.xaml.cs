@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
@@ -15,6 +16,7 @@ namespace Vektorel.HelloWpf
         int puan = 0;
         int left = 0;
         Oyuncu o;
+        List<int> skorlar = new List<int>();
         #endregion
 
         #region Constructorlar
@@ -44,13 +46,27 @@ namespace Vektorel.HelloWpf
                 timer.Stop();
                 btnKac.Visibility = Visibility.Hidden;
                 MessageBoxResult cevap = MessageBox.Show($"Oyun Bitti!\nPuanınız:{puan}\nYeniden Başlamak İster misiniz?", "Game Over", MessageBoxButton.YesNo);
+                skorlar.Add(puan);
                 if (cevap == MessageBoxResult.Yes)
-                {
+                {                    
                     OyunuBaslat();
                 }
                 else
                 {
-                    MessageBox.Show("Bitti");
+                    int maxpuan = 0;
+                    int minpuan = skorlar[0];
+                    foreach (int item in skorlar)
+                    {
+                        if (item>maxpuan)
+                        {
+                            maxpuan = item;
+                        }
+                        if (item<minpuan)
+                        {
+                            minpuan = item;
+                        }
+                    }                   
+                    MessageBox.Show($"Bitti.En yüksek skorunuz:{maxpuan}\nEn düşük Skorunuz:{minpuan}");
                     Application.Current.Shutdown();
                 }
             }

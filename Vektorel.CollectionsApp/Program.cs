@@ -11,6 +11,7 @@ namespace Vektorel.CollectionsApp
     {
         static void Main(string[] args)
         {
+            #region Non-Generic Collections
             //ArrayList al = new ArrayList();
             //al.Add(5);
             //al.Add(10);
@@ -41,45 +42,96 @@ namespace Vektorel.CollectionsApp
             //ht.Add(34, "İstanbul");
             //ht.Add(35, "İzmir");
 
-            ////foreach (DictionaryEntry item in ht)
-            ////{
-            ////    Console.WriteLine($"Key:{item.Key} Value:{item.Value}");
-            ////}
+
+            //foreach (DictionaryEntry item in ht)
+            //{
+            //    Console.WriteLine($"Key:{item.Key} Value:{item.Value}");
+            //}
 
             //Console.WriteLine("Plaka gir");
             //int plaka = int.Parse(Console.ReadLine());
 
             //Console.WriteLine($"Plakası {plaka} olan şehir:{ht[plaka]}");
 
-            // Queue q = new Queue();
+            //Queue q = new Queue();
 
-            // q.Enqueue("Muharrem");
-            // q.Enqueue("Kemal");
-            // q.Enqueue("Halil İbo");
-            // q.Enqueue("Habip");
+            //q.Enqueue("Muharrem");
+            //q.Enqueue("Kemal");
+            //q.Enqueue("Halil İbo");
+            //q.Enqueue("Habip");
 
             //// Console.WriteLine(q.Peek());
-            // q.Dequeue();
-            // foreach (var item in q)
-            // {
-            //     Console.WriteLine(item);
-            // }
-
-            Stack s = new Stack();
-            s.Push("Muharrem");
-            s.Push("Kemal");
-            s.Push("Halil İbo");
-            s.Push("Habip");
-            //foreach (var item in s)
+            //q.Dequeue();
+            //foreach (var item in q)
             //{
             //    Console.WriteLine(item);
-            //}            
-           // Console.WriteLine(s.Peek());
-            s.Pop();
-            foreach (var item in s)
+            //}
+
+            // Stack s = new Stack();
+            // s.Push("Muharrem");
+            // s.Push("Kemal");
+            // s.Push("Halil İbo");
+            // s.Push("Habip");
+            // //foreach (var item in s)
+            // //{
+            // //    Console.WriteLine(item);
+            // //}            
+            //// Console.WriteLine(s.Peek());
+            // s.Pop();
+            // foreach (var item in s)
+            // {
+            //     Console.WriteLine(item);
+            // } 
+            #endregion
+
+            //Islem<int,string> islem = new Islem<int,string>();
+
+            //islem.value = 5;
+            //islem.value_ = "5";
+            //islem.Yazdir();  
+
+            //Dictionary<byte, string> plakalar = new Dictionary<byte, string>();
+            //plakalar.Add(6, "Ankara");
+
+
+            //foreach (KeyValuePair<byte,string> item in plakalar)
+            //{
+            //    Console.WriteLine(item.Key);
+            //}
+
+            //List<int> lst = new List<int>();
+            //lst.Add(5);
+            //lst.Add(125);
+
+
+            //List<Ogrenci> lst = new List<Ogrenci>();
+            //lst.Add(new Ogrenci { Ad = "Ahmet", Soyad = "Mehmet" });
+            //lst.Add(new Ogrenci { Ad = "Osman", Soyad = "Mosman" });
+
+            //foreach (Ogrenci item in lst)
+            //{
+            //    Console.WriteLine($"{item.Ad} {item.Soyad}");
+            //}
+
+            List<Ogrenci> lst = new List<Ogrenci>();
+            while (true)
             {
-                Console.WriteLine(item);
+                Ogrenci ogr = new Ogrenci();
+                Console.WriteLine("Ogrenci Adı Giriniz");
+                ogr.Ad = Console.ReadLine();
+                Console.WriteLine("Soyadı Giriniz:");
+                ogr.Soyad = Console.ReadLine();
+                lst.Add(ogr);
+                Console.WriteLine("Tamam/Devam");
+                string cevap = Console.ReadLine();
+                if (cevap=="T")               
+                    break;                
             }
+
+
+
+
+
             Console.ReadKey();
         }
     }
@@ -104,4 +156,21 @@ namespace Vektorel.CollectionsApp
     }
 
 
+    class Islem<T>
+    {
+       // public T value;
+        //public U value_;
+        public void Yazdir(T value)
+        {
+            Console.WriteLine(value);           
+        }
+    }
+
+
+
+    class Ogrenci
+    {
+        public string Ad { get; set; }
+        public string Soyad { get; set; }
+    }
 }
